@@ -35,6 +35,11 @@ class BookController extends Controller {
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'publisher' => 'required',
+        ]);
+
         $book = new Book;
         $book->title =  $request->input('title');
         $book->bookPages =  $request->input('bookPages');
@@ -76,6 +81,10 @@ class BookController extends Controller {
      */
     public function update(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required',
+            'publisher' => 'required',
+        ]);
         $book  = Book::find($request->input('id'));
         $book->title =  $request->input('title');
         $book->bookPages =  $request->input('bookPages');
