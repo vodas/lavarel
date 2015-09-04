@@ -15,6 +15,14 @@ Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+Route::get('book', 'BookController@index');
+Route::get('book/create', 'BookController@create');
+Route::get('book/edit/{id}', 'BookController@edit');
+Route::get('book/destroy/{id}', 'BookController@destroy');
+Route::post('book/store', 'BookController@store');
+Route::post('book/update', 'BookController@update');
+Route::get('book/show/{id}', 'BookController@show');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
