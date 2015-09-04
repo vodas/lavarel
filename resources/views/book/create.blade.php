@@ -1,5 +1,6 @@
-@extends('template')
+@extends('app')
 @section('content')
+    <div class="container">
     <div class="page-header" >
         <h1>Add new book </h1>
     </div>
@@ -33,4 +34,5 @@
         <input type="submit" value="Add" class="btn btn-primary" />
         <a href="{{ action('BookController@index') }}" class="btn btn-link">Return</a>
     </form>
+    </div>
 @stop
