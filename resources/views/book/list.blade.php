@@ -45,6 +45,7 @@
             @endforeach
             </tbody>
         </table>
+            <a href="{{ action('BookController@exportcsv') }}" role="button" class="btn btn-primary">Eksport do CSV</a>
     @endif
     </div>
 @stop

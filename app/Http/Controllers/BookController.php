@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Book;
+use Maatwebsite\Excel\Excel;
+use Illuminate\Support\Facades\App;
 
 class BookController extends Controller {
 
@@ -92,6 +94,16 @@ class BookController extends Controller {
         $book->publisher =  $request->input('publisher');
         $book->save();
         return redirect()->action('BookController@index');
+    }
+
+    public function exportcsv() {
+        $books = Book::all();
+        $csv = \League\Csv\Writer::createFromFileObject(new \SplTempFileObject());
+        $csv->insertOne(\Schema::getColumnListing('books'));
+        foreach ($books as $book) {
+            $csv->insertOne($book->toArray());
+        }
+        $csv->output('people.csv');
     }
 
     /**

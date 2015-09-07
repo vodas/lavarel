@@ -25,6 +25,7 @@ Route::post('book/store', 'BookController@store');
 Route::post('settings/update', 'SettingsController@update');
 Route::post('settings/change', 'SettingsController@change');
 Route::post('book/update', 'BookController@update');
+Route::get('book/exportcsv', 'BookController@exportcsv');
 Route::get('book/show/{id}', 'BookController@show');
 
 Route::controllers([
